@@ -1,4 +1,5 @@
 import type { CareTask, Plant } from "../store/types";
+import { PLANT_IMAGES, isLegacyRemotePlantImage } from "./plantImages";
 
 const STORAGE_KEYS = {
   seeded: "greenly:mockDataSeeded",
@@ -18,7 +19,7 @@ const mockPlants: Plant[] = [
     location: "客厅",
     wateringFrequency: 3,
     description: "喜欢散射光，保持土壤微湿。",
-    image: "https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400",
+    image: PLANT_IMAGES.pothos,
     careLevel: "easy",
     lightNeeds: "medium",
     waterNeeds: "medium",
@@ -39,7 +40,7 @@ const mockPlants: Plant[] = [
     location: "阳台",
     wateringFrequency: 7,
     description: "耐旱，少量浇水，保持通风。",
-    image: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=400",
+    image: PLANT_IMAGES.succulent,
     careLevel: "easy",
     lightNeeds: "high",
     waterNeeds: "low",
@@ -97,14 +98,20 @@ const migrateVegetableCreatedAt = () => {
         name.includes("多肉") ||
         species.includes("多肉");
 
-      if (!isTarget || plant.createdAt === VEGETABLE_CREATED_AT) {
-        return plant;
+      const image = isLegacyRemotePlantImage(plant.image)
+        ? isTarget
+          ? PLANT_IMAGES.succulent
+          : PLANT_IMAGES.pothos
+        : plant.image || PLANT_IMAGES.default;
+
+      if (image !== plant.image || (isTarget && plant.createdAt !== VEGETABLE_CREATED_AT)) {
+        changed = true;
       }
 
-      changed = true;
       return {
         ...plant,
-        createdAt: VEGETABLE_CREATED_AT,
+        image,
+        ...(isTarget ? { createdAt: VEGETABLE_CREATED_AT } : {}),
       };
     });
 

@@ -1,4 +1,5 @@
 import type { Plant } from "./types";
+import { PLANT_IMAGES, isLegacyRemotePlantImage } from "../utils/plantImages";
 
 const PLANTS_KEY = "plants";
 const VEGETABLE_CREATED_AT = "2026-03-12T00:00:00.000Z";
@@ -8,7 +9,7 @@ const defaultPlants: Plant[] = [
     id: "1",
     name: "绿萝",
     species: "绿萝",
-    image: "https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=400&h=400&fit=crop",
+    image: PLANT_IMAGES.pothos,
     status: "healthy",
     health: "good",
     location: "客厅",
@@ -54,7 +55,17 @@ const normalizePlants = (plants: Plant[]) =>
       name.includes("多肉") ||
       species.includes("多肉");
 
-    return isTarget ? { ...plant, createdAt: VEGETABLE_CREATED_AT } : plant;
+    const image = isLegacyRemotePlantImage(plant.image)
+      ? isTarget
+        ? PLANT_IMAGES.succulent
+        : PLANT_IMAGES.pothos
+      : plant.image || PLANT_IMAGES.default;
+
+    return {
+      ...plant,
+      image,
+      ...(isTarget ? { createdAt: VEGETABLE_CREATED_AT } : {}),
+    };
   });
 
 export const plantStore = (set: any, get: any) => ({
@@ -87,7 +98,7 @@ export const plantStore = (set: any, get: any) => ({
       species: plantData.species || "未知",
       image:
         plantData.image ||
-        "https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?w=300&h=300&fit=crop",
+        PLANT_IMAGES.default,
       status: plantData.status || "healthy",
       health: plantData.health || "good",
       location: plantData.location || "客厅",

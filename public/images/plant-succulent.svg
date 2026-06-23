@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-label="Succulent">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f2fbf6"/>
+      <stop offset="1" stop-color="#d4ece0"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#a8d88c"/>
+      <stop offset="1" stop-color="#4f9f73"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="640" rx="92" fill="url(#bg)"/>
+  <ellipse cx="320" cy="508" rx="150" ry="34" fill="#bfd8c6"/>
+  <path d="M218 392h204l-34 120H252z" fill="#c8846f"/>
+  <path d="M202 366h236v48H202z" rx="22" fill="#dda08b"/>
+  <g transform="translate(320 302)">
+    <path d="M0-150c43 49 47 98 0 146-47-48-43-97 0-146z" fill="#76bf76"/>
+    <path d="M0-4c-70-17-111-56-117-121 70 7 111 47 117 121z" fill="#82c981"/>
+    <path d="M0-4c70-17 111-56 117-121-70 7-111 47-117 121z" fill="#67b96d"/>
+    <path d="M-6 10c-78 28-136 12-178-48 76-25 135-9 178 48z" fill="#91d092"/>
+    <path d="M6 10c78 28 136 12 178-48-76-25-135-9-178 48z" fill="#5faf72"/>
+    <path d="M0 20c-52 55-109 68-170 30 56-51 113-62 170-30z" fill="#77c88a"/>
+    <path d="M0 20c52 55 109 68 170 30-56-51-113-62-170-30z" fill="#4f9f73"/>
+    <circle cx="0" cy="0" r="28" fill="#b7dd86"/>
+  </g>
+</svg>

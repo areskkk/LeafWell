@@ -5,6 +5,7 @@ import { ArrowLeft, Edit, Delete, StarO } from "@react-vant/icons";
 import { useStore } from "../../../store";
 import { useTitle } from "../../../hooks";
 import { PlantImage } from "../../../components/common";
+import { PLANT_IMAGES } from "../../../utils/plantImages";
 import styles from "./detail.module.css";
 
 interface PlantDetail {
@@ -62,7 +63,7 @@ const PlantDetail: React.FC = () => {
               : "needs_care",
           image:
             foundPlant.image ||
-            "https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?w=400",
+            PLANT_IMAGES.default,
           location: foundPlant.location || "未设置",
           createdAt: new Date(
             foundPlant.createdAt || foundPlant.addedAt || Date.now()

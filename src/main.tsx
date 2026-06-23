@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "lib-flexible";
 import App from "./App.tsx";
 import "./index.css";
+import { PLANT_IMAGES } from "./utils/plantImages";
 
 // 初始化应用
 const initializeApp = () => {
@@ -38,7 +39,7 @@ const initializeApp = () => {
         name: "绿萝",
         species: "绿萝属",
         image:
-          "https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?w=300&h=300&fit=crop",
+          PLANT_IMAGES.pothos,
         status: "healthy",
         health: "good",
         location: "客厅",
@@ -58,7 +59,7 @@ const initializeApp = () => {
         name: "多肉植物",
         species: "景天科",
         image:
-          "https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?w=300&h=300&fit=crop",
+          PLANT_IMAGES.succulent,
         status: "needs_care",
         health: "warning",
         location: "阳台",

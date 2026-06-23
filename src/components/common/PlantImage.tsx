@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./PlantImage.module.css";
+import { PLANT_IMAGES, isLegacyRemotePlantImage } from "../../utils/plantImages";
 
 interface PlantImageProps {
   src?: string;
@@ -25,7 +26,7 @@ const PlantImage: React.FC<PlantImageProps> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  const defaultImage = "https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?w=400&h=400&fit=crop";
+  const imageSrc = src && !isLegacyRemotePlantImage(src) ? src : PLANT_IMAGES.default;
 
   const handleLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     setIsLoading(false);
@@ -38,8 +39,8 @@ const PlantImage: React.FC<PlantImageProps> = ({
     setIsLoading(false);
     
     // 防止无限循环，只有在不是默认图片时才切换
-    if (!target.src.includes("photo-1593691509543-c55fb32e5cee")) {
-      target.src = defaultImage;
+    if (target.src !== PLANT_IMAGES.default) {
+      target.src = PLANT_IMAGES.default;
       setHasError(false);
     } else {
       setHasError(true);
@@ -62,7 +63,7 @@ const PlantImage: React.FC<PlantImageProps> = ({
       style={containerStyle}
     >
       <img
-        src={src || defaultImage}
+        src={imageSrc}
         alt={alt}
         onLoad={handleLoad}
         onError={handleError}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-label="Pothos">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f3fbf0"/>
+      <stop offset="1" stop-color="#cfe8c8"/>
+    </linearGradient>
+    <linearGradient id="pot" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#c8907d"/>
+      <stop offset="1" stop-color="#8c5d50"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="640" rx="92" fill="url(#bg)"/>
+  <circle cx="320" cy="320" r="214" fill="#ffffff" opacity=".42"/>
+  <path d="M228 402h184l-30 112H258z" fill="url(#pot)"/>
+  <path d="M214 382h212v42H214z" rx="20" fill="#d3a18e"/>
+  <path d="M320 382V166" fill="none" stroke="#337f3a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M318 221c-87-78-173-70-225-9 64 67 149 74 225 9z" fill="#5fba54"/>
+  <path d="M326 196c40-102 121-141 201-105-23 89-90 144-201 105z" fill="#43a648"/>
+  <path d="M316 302c-94-42-172-14-206 57 70 39 149 25 206-57z" fill="#73c867"/>
+  <path d="M329 305c84-64 163-52 211 9-57 58-137 70-211-9z" fill="#4bae50"/>
+  <path d="M286 228c-44-18-81-17-118 3M365 185c44-8 74-25 98-54M278 309c-49 3-82 21-111 53M374 313c49 10 82 6 120-14" fill="none" stroke="#d9f4a8" stroke-width="9" stroke-linecap="round" opacity=".9"/>
+</svg>

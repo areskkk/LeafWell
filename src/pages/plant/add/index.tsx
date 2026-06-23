@@ -12,6 +12,7 @@ import {
 import { ArrowLeft, PhotoO } from "@react-vant/icons";
 import { useStore } from "../../../store";
 import { useTitle } from "../../../hooks";
+import { PLANT_IMAGES } from "../../../utils/plantImages";
 // import { showToast } from "../../../components/common"; // 暂时注释掉，使用 alert 替代
 import styles from "./add.module.css";
 
@@ -153,7 +154,7 @@ const AddPlant: React.FC = () => {
         description: formData.description.trim(),
         image:
           formData.image ||
-          "https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?w=300&h=300&fit=crop",
+          PLANT_IMAGES.default,
         health: "good",
         lastWatered: new Date().toISOString(),
         nextWatering: new Date(
