@@ -174,7 +174,7 @@ function App() {
 
   return (
     <ConfigProvider themeVars={greenTheme}>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         <div className="app">
           <Suspense fallback={<Loading />}>
             <Routes>
